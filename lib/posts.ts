@@ -26,8 +26,12 @@ export function getSortedPostsData() {
       ...(matterResult.data) as { date: string; title: string }
     }
   })
+  console.log('meme', allPostsData);
+  
   // Sort posts by date
-  return allPostsData.sort((a, b) => {
+  return allPostsData
+  .filter(a => a.id !== '.DS_Store')
+  .sort((a, b) => {
     if (a.date < b.date) {
       return 1
     } else {
